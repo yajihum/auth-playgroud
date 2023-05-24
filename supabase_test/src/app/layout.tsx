@@ -24,11 +24,16 @@ export default async function RootLayout({
   const {
     data: { session },
   } = await supabase.auth.getSession();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <SupabaseProvider session={session}>{children}</SupabaseProvider>
+        <SupabaseProvider session={session} user={user}>
+          <main className="flex flex-col justify-between p-24">{children}</main>
+        </SupabaseProvider>
       </body>
     </html>
   );
