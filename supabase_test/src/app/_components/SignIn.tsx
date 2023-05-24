@@ -2,8 +2,10 @@
 
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useSupabase } from "./SupabaseProvder";
+import { useRouter } from "next/navigation";
+import { Session } from "@supabase/supabase-js";
 
 export const SignIn = () => {
   const { supabase } = useSupabase();
@@ -22,7 +24,6 @@ export const SignIn = () => {
           },
         },
       }}
-      redirectTo="/"
     />
   );
 };
