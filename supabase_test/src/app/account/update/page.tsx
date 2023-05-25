@@ -6,7 +6,6 @@ import { use, useEffect, useRef, useState } from "react";
 
 const Account = () => {
   const [user, setUser] = useState({ name: "", website: "", avatar_url: "" });
-  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
 
   const supabaseCtx = useSupabase();
@@ -90,7 +89,6 @@ const Account = () => {
           {loading ? "Loading ..." : "Update"}
         </button>
       </div>
-
       <div className="my-3">
         <button
           className="px-3 py-2 bg-green-600 text-white hover:bg-green-500 rounded-md"
@@ -99,13 +97,6 @@ const Account = () => {
         >
           Sign Out
         </button>
-      </div>
-      <div>
-        {user && (
-          <p>
-            You are {name} & {user.website}
-          </p>
-        )}
       </div>
     </div>
   );

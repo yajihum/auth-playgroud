@@ -18,18 +18,34 @@ const Account = async () => {
 
   if (!session) {
     redirect("/");
-  }
-
-  if (!user) {
+  } else if (!user) {
     return null;
   }
 
+  const { data: User, error } = await supabase
+    .from("User")
+    .select("*")
+    .eq("uuid", user.id);
+
+  if (error || !User) {
+    console.log(error);
+    return null;
+  }
+
+  console.log(user.user_metadata);
+
   const userImageLink =
-    user.user_metadata.avatar_url ?? user.user_metadata.picture;
+    (User[0].avatar_url !== "" ? User[0].avatar_url : null) ||
+    (user.user_metadata.avatar_url !== ""
+      ? user.user_metadata.avatar_url
+      : null) ||
+    user.user_metadata.picture;
+  const userName = User[0].name ?? user.user_metadata.name;
+  const userWebsite = User[0].website ?? user.user_metadata.website;
 
   return (
     <div className="text-center">
-      <h2>こんにちは！ {user.user_metadata.name}さん</h2>
+      <h2>こんにちは！ {userName}さん</h2>
       <div className="flex justify-center my-4">
         <Image
           src={userImageLink}
@@ -39,11 +55,22 @@ const Account = async () => {
         />
       </div>
       <div className="text-center">
-        <p>{user.user_metadata.name}</p>
+        <p>{userName}</p>
       </div>
+      {userWebsite && (
+        <div className="my-4">
+          ウェブサイト:
+          <Link href={userWebsite} className="text-blue-400 underline">
+            {userWebsite}
+          </Link>
+        </div>
+      )}
       <div className="my-4">
-        <Link href="/account/update" className="text-blue-400 underline">
-          プロフィールを編集する
+        <Link
+          href="/account/update"
+          className="p-3 bg-blue-500 text-white rounded hover:bg-blue-400"
+        >
+          アカウントを編集する
         </Link>
       </div>
     </div>
