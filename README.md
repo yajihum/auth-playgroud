@@ -12,3 +12,9 @@ example:
 
 website:  
 [https://supabase.com/docs/guides/auth/auth-helpers/nextjs-server-components](https://supabase.com/docs/guides/auth/auth-helpers/nextjs-server-components)
+[https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs) ※pages
+
+## clerk
+
+docs  
+[https://clerk.com/docs/nextjs/get-started-with-nextjs](https://clerk.com/docs/nextjs/get-started-with-nextjs)
