@@ -1,6 +1,8 @@
 import { auth, clerkClient } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import Rooms from "./_components/Room";
+import { Suspense } from "react";
 
 export default async function Home() {
   const { userId } = auth();
@@ -32,6 +34,12 @@ export default async function Home() {
           className="mx-auto my-4"
         />
       )}
+      <div className="my-16">
+        <p className="font-medium text-gray-700">参加可能なルーム一覧</p>
+        <Suspense fallback={<div>loading...</div>}>
+          <Rooms />
+        </Suspense>
+      </div>
     </div>
   );
 }

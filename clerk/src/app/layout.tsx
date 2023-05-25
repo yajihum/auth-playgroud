@@ -3,7 +3,6 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "./_components/layout/Header";
-import { jaJP } from "@clerk/localizations";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     // Providerを作ってcontextを参照できるようにする
-    <ClerkProvider localization={jaJP}>
+    <ClerkProvider>
       <html lang="ja">
         <body className={inter.className}>
           <Header />

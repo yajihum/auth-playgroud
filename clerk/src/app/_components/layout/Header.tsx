@@ -1,11 +1,14 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function Header() {
   return (
     <header className="border-b border-gray-200">
       <nav className="flex justify-between p-4">
         <div>
-          <p className="text-xl font-semibold">Clerk test</p>
+          <Link href={"/"} className="text-xl font-semibold">
+            Clerk test
+          </Link>
         </div>
         <div>
           <SignedIn>
