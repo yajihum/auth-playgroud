@@ -3,8 +3,6 @@ import { getUserById } from "@/lib/clerk";
 import { auth } from "@clerk/nextjs";
 import { Chat } from "@prisma/client";
 import Image from "next/image";
-import MeChat from "./MeChat";
-import OtherChat from "./OtherChat";
 
 export default async function Chats({ chats }: { chats: Chat[] }) {
   if (!chats || chats.length === 0)
@@ -34,8 +32,8 @@ export default async function Chats({ chats }: { chats: Chat[] }) {
       {chatList.map((chat) => {
         const isMeClass = chat.isMe ? "flex-row-reverse" : "";
         return (
-          <div key={chat.id} className=`p-3 flex flex-row-reverse items-start``>
-            <div className="flex flex-col">
+          <div key={chat.id} className={`p-3 flex items-start ${isMeClass}`}>
+            <div className="flex flex-col items-center">
               {chat.profileImageUrl ? (
                 <Image
                   src={chat.profileImageUrl}
