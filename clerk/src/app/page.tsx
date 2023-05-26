@@ -1,15 +1,15 @@
 import { auth, clerkClient } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import Rooms from "./_components/Room";
+import Rooms from "./_components/Rooms";
 import { Suspense } from "react";
+import { getUserById } from "@/lib/clerk";
 
 export default async function Home() {
-  const { userId } = auth();
-  const user = userId ? await clerkClient.users.getUser(userId) : null;
+  const user = await getUserById();
 
   return (
-    <div className="text-center">
+    <div className="text-center my-4">
       <div>
         <p className="text-xl mt-4">
           こんにちは！ {user?.username ?? "ゲスト"}さん
@@ -37,6 +37,7 @@ export default async function Home() {
       <div className="my-16">
         <p className="font-medium text-gray-700">参加可能なルーム一覧</p>
         <Suspense fallback={<div>loading...</div>}>
+          {/* @ts-expect-error Async Server Component */}
           <Rooms />
         </Suspense>
       </div>

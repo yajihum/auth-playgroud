@@ -22,7 +22,7 @@ export default function RootLayout({
       <html lang="ja">
         <body className={inter.className}>
           <Header />
-          <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          <main className="flex min-h-screen max-w-5xl mx-auto place-content-center flex-col justify-between md:p-12">
             {children}
           </main>
         </body>

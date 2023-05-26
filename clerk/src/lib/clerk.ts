@@ -1,8 +1,7 @@
-import { createClerkClient } from "@clerk/nextjs/dist/server";
+import { auth, clerkClient } from "@clerk/nextjs";
 
-const options = {
-  publishableKey: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
-  secretKey: process.env.NEXT_PUBLIC_CLERK_SECRET_KEY,
+export const getUserById = async () => {
+  const { userId } = auth();
+  const user = userId ? await clerkClient.users.getUser(userId) : null;
+  return user;
 };
-
-const num = createClerkClient(options);
