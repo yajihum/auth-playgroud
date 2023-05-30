@@ -1,0 +1,36 @@
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+import LinkList from "./LinkList";
+
+export default function Header() {
+  return (
+    <header className="border-b border-gray-200">
+      <nav className="flex justify-between p-4">
+        <div className="flex">
+          <Link href={"/"} className="px-2 text-lg font-semibold md:text-2xl">
+            🍊ChatLife
+          </Link>
+          <LinkList />
+        </div>
+        <div>
+          <SignedIn>
+            {/* Mount the UserButton component */}
+            <UserButton
+              afterSignOutUrl="/"
+              userProfileMode="navigation"
+              userProfileUrl="/account"
+            />
+          </SignedIn>
+          <SignedOut>
+            {/* Signed out users get sign in button */}
+            <SignInButton>
+              <button className="rounded bg-blue-500 p-3 text-white hover:bg-blue-400">
+                サインイン
+              </button>
+            </SignInButton>
+          </SignedOut>
+        </div>
+      </nav>
+    </header>
+  );
+}

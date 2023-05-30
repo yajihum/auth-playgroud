@@ -44,3 +44,13 @@ export const getChats = (roomId: number) => {
   });
   return chats;
 };
+
+export const createRooms = (name: string, description: string) => {
+  const room = prisma.room.create({
+    data: {
+      name: name,
+      description: description,
+    },
+  });
+  return room;
+};

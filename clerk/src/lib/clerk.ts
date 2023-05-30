@@ -1,3 +1,5 @@
+"use server";
+
 import { auth, clerkClient } from "@clerk/nextjs";
 
 export const getUserById = async () => {

@@ -1,8 +1,9 @@
 // app/layout.tsx
-import "./globals.css";
-import { Inter } from "next/font/google";
+import { jaJP } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
-import Header from "./_components/layout/Header";
+import { Inter } from "next/font/google";
+import Header from "./_components/layout/header/Header";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,11 @@ export default function RootLayout({
 }) {
   return (
     // Providerを作ってcontextを参照できるようにする
-    <ClerkProvider>
+    <ClerkProvider localization={jaJP}>
       <html lang="ja">
         <body className={inter.className}>
           <Header />
-          <main className="flex min-h-screen max-w-5xl mx-auto place-content-center flex-col justify-between md:p-12">
+          <main className="mx-auto flex min-h-screen max-w-5xl flex-col place-content-center justify-between md:p-12">
             {children}
           </main>
         </body>
