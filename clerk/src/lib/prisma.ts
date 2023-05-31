@@ -16,6 +16,7 @@ export const getRoomById = (id: number) => {
     select: {
       name: true,
       description: true,
+      createdAt: true,
       chats: true,
     },
   });
@@ -46,6 +47,7 @@ export const getChats = (roomId: number) => {
 };
 
 export const createRooms = (name: string, description: string) => {
+  const prisma = new PrismaClient();
   const room = prisma.room.create({
     data: {
       name: name,
@@ -53,4 +55,11 @@ export const createRooms = (name: string, description: string) => {
     },
   });
   return room;
+};
+
+export const formatDate = (date: Date) => {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  return `${year}/${month}/${day}`;
 };
