@@ -8,31 +8,21 @@ datasource db {
   relationMode = "prisma"
 }
 
-model User {
-  id          Int    @id @default(autoincrement())
-  uuid        String    @unique
-  name        String
-  chats      Chat[]
-}
-
 model Room{
   id          Int    @id @default(autoincrement())
   name        String
   description String
-  isActive    Boolean @default(false)
   chats      Chat[]
+  createdAt DateTime @default(now())
 }
 
 model Chat{
   id          Int    @id @default(autoincrement())
   message     String
-  user      User @relation(fields: [userId], references: [uuid])
   userId      String
   room      Room @relation(fields: [roomId], references: [id])
   roomId      Int
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
-  @@index([userId])
   @@index([roomId])
 }
