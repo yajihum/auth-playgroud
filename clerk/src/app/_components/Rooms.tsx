@@ -1,15 +1,16 @@
-import { prisma } from "@/lib/prisma";
+import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import ChatsNum from "./ui/ChatsNum";
 import { InRoomIcon } from "./ui/Icon";
 
 export default async function Rooms() {
+  const prisma = new PrismaClient();
   const rooms = await prisma.room.findMany();
   if (!rooms || rooms.length === 0)
-    return <div className="my-2">参加可能なルームはありません</div>;
+    return <div className="my-14">sorry... 参加可能なルームはありません🥹</div>;
 
   return (
-    <div className="mx-6 my-10 grid gap-4 md:grid-cols-3">
+    <div className="my-8 grid gap-4 md:grid-cols-3">
       {rooms.map((room) => (
         <Link
           href={`/room/${room.id}`}

@@ -6,8 +6,8 @@ export const InRoomIcon = () => {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <line x1="7" y1="17" x2="17" y2="7" />{" "}
       <polyline points="7 7 17 7 17 17" />
@@ -25,8 +25,8 @@ export const ChatIcon = () => {
       strokeWidth="2"
       stroke="currentColor"
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       {" "}
       <path stroke="none" d="M0 0h24v24H0z" />{" "}
@@ -45,8 +45,8 @@ export const ArrowBottomIcon = () => {
       stroke="currentColor"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         strokeWidth="2"
         d="M19 14l-7 7m0 0l-7-7m7 7V3"
       />

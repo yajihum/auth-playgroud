@@ -5,9 +5,9 @@ import LinkList from "./LinkList";
 export default function Header() {
   return (
     <header className="border-b border-gray-200">
-      <nav className="flex justify-between p-4">
+      <nav className="flex justify-between p-2">
         <div className="flex">
-          <Link href={"/"} className="px-2 text-lg font-semibold md:text-2xl">
+          <Link href={"/"} className="p-2 text-sm font-semibold md:text-2xl">
             🍊ChatLife
           </Link>
           <LinkList />
