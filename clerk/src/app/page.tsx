@@ -5,15 +5,13 @@ import { Suspense } from "react";
 import Rooms from "./_components/Rooms";
 import { ThreePointsAnimation } from "./_components/ui/Animation";
 
-export const revalidate = 0;
-
 export default async function Home() {
   const user = await getUserById();
 
   return (
-    <div className="my-4 text-center">
+    <div className="my-4">
       <div>
-        <p className="mt-4 text-xl">
+        <p className="mt-4 text-2xl font-semibold">
           こんにちは！{" "}
           <Link
             href="/account"
@@ -40,12 +38,14 @@ export default async function Home() {
           width={100}
           height={100}
           alt="プロフィール画像"
-          className="mx-auto my-4"
+          className="my-4"
         />
       )}
-      <div className="my-16">
+      <div className="my-20">
         <Suspense fallback={<ThreePointsAnimation />}>
-          <p className="font-medium text-gray-700">参加可能なルーム一覧</p>
+          <a id="rooms" className="mx-2 text-gray-600">
+            参加可能なルーム一覧
+          </a>
           {/* @ts-expect-error Async Server Component */}
           <Rooms />
         </Suspense>
