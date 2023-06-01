@@ -24,7 +24,7 @@ export default function LinkList() {
           <Link
             key={index}
             href={link.href}
-            className={`mx-1 rounded-2xl px-1 py-1.5 text-sm md:px-4 md:pt-3 ${
+            className={`mx-1 rounded-2xl px-2 py-1.5 text-sm md:my-2 md:px-4 ${
               isActive
                 ? "bg-orange-200 text-orange-600"
                 : "text-gray-500 hover:bg-orange-200 hover:text-orange-600"
