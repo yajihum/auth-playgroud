@@ -1,4 +1,4 @@
-import { ThreePointsAnimation } from "@/app/_components/ui/Animation";
+import Loading from "@/app/loading";
 import { formatDate, getChats, getRoomById } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
@@ -31,7 +31,7 @@ export default async function Room({ params }: { params: { id: string } }) {
         </div>
       </div>
       <div className="my-6 md:my-8">
-        <Suspense fallback={<ThreePointsAnimation />}>
+        <Suspense fallback={<Loading />}>
           {/* @ts-expect-error Async Server Component */}
           <Chats chats={chats} />
         </Suspense>

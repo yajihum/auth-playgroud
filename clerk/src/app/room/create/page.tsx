@@ -44,7 +44,9 @@ export default function Page() {
         )}
         <div>
           <p className="my-3">
-            <label htmlFor="name">🍊ルームの名前</label>
+            <label htmlFor="name">
+              🍊ルームの名前<span className="text-red-500">*</span>
+            </label>
           </p>
           <input
             type="text"
@@ -56,7 +58,9 @@ export default function Page() {
         </div>
         <div>
           <p className="my-3">
-            <label htmlFor="description">🍊どんなルームですか？</label>
+            <label htmlFor="description">
+              🍊どんなルームですか？<span className="text-red-500">*</span>
+            </label>
           </p>
           <textarea
             name="description"
