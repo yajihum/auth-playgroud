@@ -18,3 +18,6 @@ website:
 
 docs  
 [https://clerk.com/docs/nextjs/get-started-with-nextjs](https://clerk.com/docs/nextjs/get-started-with-nextjs)
+
+ブラッシュアップしたものを以下リポジトリとして作成  
+[https://github.com/yajium/app-router-server-actions-study](https://github.com/yajium/app-router-server-actions-study)
